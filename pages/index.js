@@ -17,18 +17,17 @@ export default function Home() {
     "brunofernandes35",
     "wboccato",
     "arturyuiti",
-    "mity-hoshino",
     "karymereis1",
-    "gkdekker",
     "diaslaris",
     "luryrodrigues",
+    "mity-hoshino",
     "flascardoso",
     "copeliacoral",
     "juliana-romero",
     "igor-araujo",
     "guferreircreditas",
   ];
-  const orgs = ["creditas", "google", "facebook", "openai", "deepmind"];
+  const companies = ["creditas", "google", "facebook", "openai", "spotify", "deepmind"];
   return (
     <>
       <AlurakutMenu />
@@ -46,7 +45,7 @@ export default function Home() {
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">Meus amigos ({people.length})</h2>
             <ul>
-              {people.map((person) => {
+              {people.slice(0,6).map((person) => {
                 return (
                   <li>
                   <a href={`https://github.com/${person}`} key={person}>
@@ -58,7 +57,21 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
-          <Box>Comunidades</Box>
+          <ProfileRelationsBoxWrapper>
+            <h2 className="smallTitle">Comunidades ({companies.length})</h2>
+            <ul>
+              {companies.slice(0,6).map((company) => {
+                return (
+                  <li>
+                  <a href={`https://github.com/${company}`} key={company}>
+                    <img src={`https://github.com/${company}.png`} />
+                    <span>{company}</span>
+                  </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </ProfileRelationsBoxWrapper>
         </Container>
       </MainGrid>
     </>
