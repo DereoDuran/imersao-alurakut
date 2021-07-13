@@ -496,5 +496,11 @@ export const AlurakutStyles = css`
       box-shadow: 0px 0px 5px #33333357;
     }
   }
+  .errorTextDiv {
+    margin: 20px 0px 10px;
+    padding:12px;
+    color: #9F6000;
+    background-color: #FEEFB3;
+  }
   ${AlurakutLoginScreen}
 `;

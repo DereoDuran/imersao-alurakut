@@ -20,6 +20,7 @@ export default function Home() {
       key: "community-Eu odeio acordar cedo",
     },
   ]);
+  const [addCommunityFeedback , setAddCommunityFeedBack] = useState("")
   const githubUser = "dereoduran";
   const gitUserToCardInfo = (user) => {
     return {
@@ -47,14 +48,24 @@ export default function Home() {
   const handleNewCommunity = (e) => {
     e.preventDefault();
     const dadosDoForm = new FormData(e.target);
-    setCommunities([
-      ...communities,
-      {
-        id: new Date().toISOString(),
-        title: dadosDoForm.get("title"),
-        image: dadosDoForm.get("image"),
-      },
-    ]);
+    const title = dadosDoForm.get("title");
+    const image = dadosDoForm.get("image");
+    if (!title) {
+      setAddCommunityFeedBack("Preencha o nome da comunidade!")
+    } else if (!image) {
+      setAddCommunityFeedBack("Escolha a imagem da comunidade!")
+    } else {
+      setCommunities([
+        ...communities,
+        {
+          id: new Date().toISOString(),
+          title: title,
+          image: image,
+        },
+      ]);
+      setAddCommunityFeedBack("");
+      e.target.reset()
+    }
   };
   return (
     <>
@@ -68,7 +79,7 @@ export default function Home() {
             <h2>Bem-vindo(a)</h2>
             <OrkutNostalgicIconSet />
           </Box>
-          <NewCommunityBox handleNewCommunity={handleNewCommunity} />
+          <NewCommunityBox addCommunityFeedback={addCommunityFeedback} handleNewCommunity={handleNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox boxTitle="Meus amigos" cardList={people} />

@@ -5,8 +5,8 @@ export const Card = ({ cardInfo }) => {
   return (
     <>
       <li key={id}>
-        <a href={href || `#`}>
-          <img src={image || `http://placehold.it/300x300`} />
+        <a href={href}>
+          <img src={image}/>
           <span>{title}</span>
         </a>
       </li>

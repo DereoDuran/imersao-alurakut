@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "../layout";
 
-export const NewCommunityBox = ({ handleNewCommunity }) => {
+export const NewCommunityBox = ({ addCommunityFeedback, handleNewCommunity }) => {
   return (
     <Box>
       <h2 className="subTitle">O que você deseja fazer?</h2>
@@ -23,6 +23,8 @@ export const NewCommunityBox = ({ handleNewCommunity }) => {
         </div>
 
         <button>Criar comunidade</button>
+        <br/>
+        {addCommunityFeedback && <div className="errorTextDiv">{addCommunityFeedback}</div>}
       </form>
     </Box>
   );
