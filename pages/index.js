@@ -1,11 +1,12 @@
 import { Container, Box } from "../src/layout/";
 import { MainGrid, ProfileRelationsBoxWrapper } from "../src/components/";
 import { AlurakutMenu, OrkutNostalgicIconSet } from "../src/lib/Commons";
+import Image from 'next/image'
 
 const ProfileSidebar = ({ githubUser }) => {
   return (
     <Box>
-      <img src={`https://github.com/${githubUser}.png`} />
+      <Image src={`https://github.com/${githubUser}.png`} />
     </Box>
   );
 };
@@ -50,7 +51,7 @@ export default function Home() {
                 return (
                   <li>
                   <a href={`https://github.com/${person}`} key={person}>
-                    <img src={`https://github.com/${person}.png`} />
+                    <Image src={`https://github.com/${person}.png`} />
                     <span>{person}</span>
                   </a>
                   </li>
