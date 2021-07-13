@@ -1,17 +1,34 @@
+import React, { useState } from "react";
 import { Container, Box } from "../src/layout/";
-import { MainGrid, ProfileRelationsBoxWrapper } from "../src/components/";
-import { AlurakutMenu, OrkutNostalgicIconSet } from "../src/lib/Commons";
-
-const ProfileSidebar = ({ githubUser }) => {
-  return (
-    <Box>
-      <img src={`https://github.com/${githubUser}.png`} />
-    </Box>
-  );
-};
+import {
+  CardBox,
+  MainGrid,
+  NewCommunityBox,
+  ProfileSidebar,
+} from "../src/components/";
+import {
+  AlurakutMenu,
+  AlurakutProfileSidebarMenuDefault,
+  OrkutNostalgicIconSet,
+} from "../src/lib/Commons";
 
 export default function Home() {
+  const [communities, setCommunities] = useState([
+    {
+      title: "Eu odeio acordar cedo",
+      image: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
+      key: "community-Eu odeio acordar cedo",
+    },
+  ]);
   const githubUser = "dereoduran";
+  const gitUserToCardInfo = (user) => {
+    return {
+      title: user,
+      image: `https://github.com/${user}.png`,
+      key: `person-${user}`,
+      href: `https://github.com/${user}`,
+    };
+  };
   const people = [
     "diasvillar",
     "brunofernandes35",
@@ -26,11 +43,22 @@ export default function Home() {
     "juliana-romero",
     "igor-araujo",
     "guferreircreditas",
-  ];
-  const companies = ["creditas", "google", "facebook", "openai", "spotify", "deepmind"];
+  ].map(gitUserToCardInfo);
+  const handleNewCommunity = (e) => {
+    e.preventDefault();
+    const dadosDoForm = new FormData(e.target);
+    setCommunities([
+      ...communities,
+      {
+        id: new Date().toISOString(),
+        title: dadosDoForm.get("title"),
+        image: dadosDoForm.get("image"),
+      },
+    ]);
+  };
   return (
     <>
-      <AlurakutMenu />
+      <AlurakutMenu {...{ githubUser }} />
       <MainGrid>
         <Container gridArea="profileArea">
           <ProfileSidebar {...{ githubUser }} />
@@ -40,38 +68,11 @@ export default function Home() {
             <h2>Bem-vindo(a)</h2>
             <OrkutNostalgicIconSet />
           </Box>
+          <NewCommunityBox handleNewCommunity={handleNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Meus amigos ({people.length})</h2>
-            <ul>
-              {people.slice(0,6).map((person) => {
-                return (
-                  <li>
-                  <a href={`https://github.com/${person}`} key={person}>
-                    <img src={`https://github.com/${person}.png`} />
-                    <span>{person}</span>
-                  </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Comunidades ({companies.length})</h2>
-            <ul>
-              {companies.slice(0,6).map((company) => {
-                return (
-                  <li>
-                  <a href={`https://github.com/${company}`} key={company}>
-                    <img src={`https://github.com/${company}.png`} />
-                    <span>{company}</span>
-                  </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
+          <CardBox boxTitle="Meus amigos" cardList={people} />
+          <CardBox boxTitle="Comunidades" cardList={communities} />
         </Container>
       </MainGrid>
     </>
