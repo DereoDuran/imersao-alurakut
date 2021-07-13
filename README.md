@@ -1,4 +1,4 @@
 # imersao-alurakut
 Projeto da Semana de Imersão React da Alura.
 
-Acesse: https://imersao-alurakut.vercel.app/
+Acesse o site: https://imersao-alurakut.vercel.app/
