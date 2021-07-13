@@ -49,11 +49,9 @@ export default function Home() {
     e.preventDefault();
     const dadosDoForm = new FormData(e.target);
     const title = dadosDoForm.get("title");
-    const image = dadosDoForm.get("image");
+    const image = dadosDoForm.get("image") || 'https://picsum.photos/300/300';
     if (!title) {
       setAddCommunityFeedBack("Preencha o nome da comunidade!")
-    } else if (!image) {
-      setAddCommunityFeedBack("Escolha a imagem da comunidade!")
     } else {
       setCommunities([
         ...communities,
