@@ -1,3 +1,3 @@
 export * from './useCommunity'
-export * from './usePeople'
+export * from './useFollowers'
 export * from './useMenu'

@@ -7,11 +7,11 @@ import {
 } from "../src/components/";
 import { AlurakutMenu } from "../src/lib/Commons";
 import { GITHUB_USER } from "../src/utils/constants";
-import { useCommunity, usePeople } from "../src/hooks/";
+import { useCommunity, useFollowers } from "../src/hooks/";
 
 export default function Home() {
   const { communities, handleNewCommunity } = useCommunity();
-  const { people } = usePeople();
+  const { followers } = useFollowers();
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Home() {
           <NewCommunityBox handleNewCommunity={handleNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
-          <CardBox boxTitle="Meus amigos" cardList={people} />
+          <CardBox boxTitle="Meus amigos" cardList={followers} />
           <CardBox boxTitle="Comunidades" cardList={communities} />
         </Container>
       </MainGrid>
