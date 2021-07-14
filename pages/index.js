@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Container } from "../src/layout/";
+import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
-  MainGrid,
   NewCommunityBox,
   ProfileSidebar,
   WelcomeBox,

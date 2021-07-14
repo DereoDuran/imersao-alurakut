@@ -1,4 +1,3 @@
-export * from './MainGrid'
 export * from './ProfileRelations'
 export * from './Card'
 export * from './CardList'
