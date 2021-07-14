@@ -1,3 +1,5 @@
+import { gitUserToCardInfo } from "./utilFunctions";
+
 export const INITIAL_COMMUNITIES = [
   {
     title: "Eu odeio acordar cedo",
@@ -20,6 +22,6 @@ export const INITIAL_PEOPLE = [
   "juliana-romero",
   "igor-araujo",
   "guferreircreditas",
-];
+].map(gitUserToCardInfo);
 
 export const GITHUB_USER = "dereoduran";
