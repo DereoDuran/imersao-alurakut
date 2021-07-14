@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
@@ -9,26 +8,13 @@ import {
 import { AlurakutMenu } from "../src/lib/Commons";
 import {
   GITHUB_USER,
-  INITIAL_COMMUNITIES,
-  INITIAL_PEOPLE,
 } from "../src/utils/constants";
-import { gitUserToCardInfo } from "../src/utils/utilFunctions";
+import { useCommunity, usePeople } from "../src/hooks/";
+
 
 export default function Home() {
-  const [communities, setCommunities] = useState(INITIAL_COMMUNITIES);
-
-  const people = INITIAL_PEOPLE.map(gitUserToCardInfo);
-
-  const handleNewCommunity = ({ image, title }) => {
-    setCommunities([
-      ...communities,
-      {
-        id: new Date().toISOString(),
-        title: title,
-        image: image,
-      },
-    ]);
-  };
+  const { communities, handleNewCommunity } = useCommunity()
+  const { people } = usePeople()
 
   return (
     <>
