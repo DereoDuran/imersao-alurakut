@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { AlurakutStyles } from "../src/lib/Commons"
+import { AlurakutStyles } from "../src/lib/Commons";
+import { useMenu } from "../src/hooks";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -11,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: sans-serif;
     background-color: #D9E6F6;
+    ${({ isMenuOpen }) => isMenuOpen && "overflow: hidden"};
   }
   #__next {
     display: flex;
@@ -32,9 +34,10 @@ const theme = {
 };
 
 export default function App({ Component, pageProps }) {
+  const { isMenuOpen } = useMenu();
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle isMenuOpen={isMenuOpen} />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

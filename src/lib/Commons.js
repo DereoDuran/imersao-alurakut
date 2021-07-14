@@ -61,14 +61,16 @@ AlurakutMenu.Wrapper = styled.header`
   width: 100%;
   background-color: #308bc5;
   .alurakutMenuProfileSidebar {
+    overflow-y: auto;
     background: white;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     padding: 46px;
     bottom: 0;
     left: 0;
     right: 0;
     top: 48px;
+    height: 100%;
     transition: 0.3s;
     pointer-events: ${({ isMenuOpen }) => (isMenuOpen ? "all" : "none")};
     opacity: ${({ isMenuOpen }) => (isMenuOpen ? "1" : "0")};
