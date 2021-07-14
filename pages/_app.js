@@ -12,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: sans-serif;
     background-color: #D9E6F6;
-    ${({ isMenuOpen }) => isMenuOpen && "overflow: hidden"};
   }
   #__next {
     display: flex;
@@ -37,7 +36,7 @@ export default function App({ Component, pageProps }) {
   const { isMenuOpen } = useMenu();
   return (
     <>
-      <GlobalStyle isMenuOpen={isMenuOpen} />
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
