@@ -1,83 +1,46 @@
 import React, { useState } from "react";
-import { Container, Box } from "../src/layout/";
+import { Container } from "../src/layout/";
 import {
   CardBox,
   MainGrid,
   NewCommunityBox,
   ProfileSidebar,
+  WelcomeBox,
 } from "../src/components/";
+import { AlurakutMenu } from "../src/lib/Commons";
 import {
-  AlurakutMenu,
-  AlurakutProfileSidebarMenuDefault,
-  OrkutNostalgicIconSet,
-} from "../src/lib/Commons";
+  GITHUB_USER,
+  INITIAL_COMMUNITIES,
+  INITIAL_PEOPLE,
+} from "../src/utils/constants";
+import { gitUserToCardInfo } from "../src/utils/utilFunctions";
 
 export default function Home() {
-  const [communities, setCommunities] = useState([
-    {
-      title: "Eu odeio acordar cedo",
-      image: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
-      key: "community-Eu odeio acordar cedo",
-    },
-  ]);
-  const [addCommunityFeedback , setAddCommunityFeedBack] = useState("")
-  const githubUser = "dereoduran";
-  const gitUserToCardInfo = (user) => {
-    return {
-      title: user,
-      image: `https://github.com/${user}.png`,
-      key: `person-${user}`,
-      href: `https://github.com/${user}`,
-    };
+  const [communities, setCommunities] = useState(INITIAL_COMMUNITIES);
+
+  const people = INITIAL_PEOPLE.map(gitUserToCardInfo);
+
+  const handleNewCommunity = ({ image, title }) => {
+    setCommunities([
+      ...communities,
+      {
+        id: new Date().toISOString(),
+        title: title,
+        image: image,
+      },
+    ]);
   };
-  const people = [
-    "diasvillar",
-    "brunofernandes35",
-    "wboccato",
-    "arturyuiti",
-    "karymereis1",
-    "diaslaris",
-    "luryrodrigues",
-    "mity-hoshino",
-    "flascardoso",
-    "copeliacoral",
-    "juliana-romero",
-    "igor-araujo",
-    "guferreircreditas",
-  ].map(gitUserToCardInfo);
-  const handleNewCommunity = (e) => {
-    e.preventDefault();
-    const dadosDoForm = new FormData(e.target);
-    const title = dadosDoForm.get("title");
-    const image = dadosDoForm.get("image") || 'https://picsum.photos/300/300';
-    if (!title) {
-      setAddCommunityFeedBack("Preencha o nome da comunidade!")
-    } else {
-      setCommunities([
-        ...communities,
-        {
-          id: new Date().toISOString(),
-          title: title,
-          image: image,
-        },
-      ]);
-      setAddCommunityFeedBack("");
-      e.target.reset()
-    }
-  };
+
   return (
     <>
-      <AlurakutMenu {...{ githubUser }} />
+      <AlurakutMenu githubUser={GITHUB_USER} />
       <MainGrid>
         <Container gridArea="profileArea">
-          <ProfileSidebar {...{ githubUser }} />
+          <ProfileSidebar githubUser={GITHUB_USER} />
         </Container>
         <Container gridArea="welcomeArea">
-          <Box>
-            <h2>Bem-vindo(a)</h2>
-            <OrkutNostalgicIconSet />
-          </Box>
-          <NewCommunityBox addCommunityFeedback={addCommunityFeedback} handleNewCommunity={handleNewCommunity} />
+          <WelcomeBox />
+          <NewCommunityBox handleNewCommunity={handleNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox boxTitle="Meus amigos" cardList={people} />
