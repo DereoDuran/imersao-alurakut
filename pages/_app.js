@@ -1,6 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { AlurakutStyles } from "../src/lib/Commons";
-import { useMenu } from "../src/hooks";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -33,7 +32,6 @@ const theme = {
 };
 
 export default function App({ Component, pageProps }) {
-  const { isMenuOpen } = useMenu();
   return (
     <>
       <GlobalStyle />
