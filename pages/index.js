@@ -6,15 +6,12 @@ import {
   WelcomeBox,
 } from "../src/components/";
 import { AlurakutMenu } from "../src/lib/Commons";
-import {
-  GITHUB_USER,
-} from "../src/utils/constants";
+import { GITHUB_USER } from "../src/utils/constants";
 import { useCommunity, usePeople } from "../src/hooks/";
 
-
 export default function Home() {
-  const { communities, handleNewCommunity } = useCommunity()
-  const { people } = usePeople()
+  const { communities, handleNewCommunity } = useCommunity();
+  const { people } = usePeople();
 
   return (
     <>
