@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <AlurakutMenu githubUser={GITHUB_USER} />
       <MainGrid>
-        <Container gridArea="profileArea">
+        <Container gridArea="profileArea" className="profileArea">
           <ProfileSidebar githubUser={GITHUB_USER} />
         </Container>
         <Container gridArea="welcomeArea">
