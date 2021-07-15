@@ -1,6 +1,7 @@
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
+  CommunityBox,
   NewCommunityBox,
   ProfileSidebar,
   WelcomeBox,
@@ -10,7 +11,7 @@ import { GITHUB_USER } from "../src/utils/constants";
 import { useCommunity, useFollowers } from "../src/hooks/";
 
 export default function Home() {
-  const { communities, handleNewCommunity } = useCommunity();
+  const { addNewCommunity } = useCommunity();
   const { followers } = useFollowers();
 
   return (
@@ -22,11 +23,11 @@ export default function Home() {
         </Container>
         <Container gridArea="welcomeArea">
           <WelcomeBox />
-          <NewCommunityBox handleNewCommunity={handleNewCommunity} />
+          <NewCommunityBox addNewCommunity={addNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox boxTitle="Meus amigos" cardList={followers} />
-          <CardBox boxTitle="Comunidades" cardList={communities} />
+          <CommunityBox />
         </Container>
       </MainGrid>
     </>

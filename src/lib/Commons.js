@@ -544,5 +544,11 @@ export const AlurakutStyles = css`
     color: #9f6000;
     background-color: #feefb3;
   }
+  .successTextDiv {
+    margin: 20px 0px 10px;
+    padding: 12px;
+    color: #00529B;
+    background-color: #BDE5F8;
+  }
   ${AlurakutLoginScreen}
 `;

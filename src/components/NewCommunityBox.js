@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box } from "../layout";
 
-export const NewCommunityBox = ({ handleNewCommunity }) => {
+export const NewCommunityBox = ({ addNewCommunity }) => {
   const [addCommunityFeedback, setAddCommunityFeedBack] = useState("");
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ export const NewCommunityBox = ({ handleNewCommunity }) => {
     if (!title) {
       setAddCommunityFeedBack("Preencha o nome da comunidade!");
     } else {
-      handleNewCommunity({ image, title });
+      addNewCommunity({ image, title });
       setAddCommunityFeedBack("");
       e.target.reset();
     }
