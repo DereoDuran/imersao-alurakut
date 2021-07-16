@@ -36,7 +36,6 @@ export const useCommunity = () => {
           title: title,
         }),
       });
-      console.log(await res.json())
       refreshCommunities();
     } catch (err) {
       setAddingError(true);

@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
-  CommunityBox,
   NewCommunityBox,
   ProfileSidebar,
   WelcomeBox,
@@ -19,10 +17,6 @@ export default function Home() {
     communityLoadingError,
     isLoadingCommunities,
   } = useCommunity();
-
-  useEffect(() => {
-    console.log(communities);
-  }, [communities]);
 
   return (
     <>
