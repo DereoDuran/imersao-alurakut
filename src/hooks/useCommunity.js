@@ -3,40 +3,59 @@ import { useState, useEffect } from "react";
 export const useCommunity = () => {
   const [communities, setCommunities] = useState([]);
   const [isLoadingCommunities, setIsLoadingCommunities] = useState(false);
-  const [loadingError, setLoadingError] = useState(false);
+  const [communityLoadingError, setCommunityLoadingError] = useState(false);
+  const [addingError, setAddingError] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoadingCommunities(true);
-      try {
-        const res = await fetch("/api/community/");
-        const json = await res.json();
+  const refreshCommunities = async () => {
+    setIsLoadingCommunities(true);
+    try {
+      const res = await fetch("/api/community/");
+      const json = await res.json();
 
-        if (json.communities) {
-          setLoadingError(false);
-          setCommunities(json.communities);
-        } else {
-          setLoadingError(true);
-        }
-      } catch (err) {
-        setLoadingError(true);
-      } finally {
-        setIsLoadingCommunities(false);
+      if (json.communities) {
+        setCommunityLoadingError(false);
+        setCommunities(json.communities);
+      } else {
+        setCommunityLoadingError(true);
       }
-    };
-    fetchData();
-  }, []);
-
-  const addNewCommunity = ({ imageUrl, title }) => {
-    setCommunities([
-      ...communities,
-      {
-        id: new Date().toISOString(),
-        title: title,
-        imageUrl: imageUrl,
-      },
-    ]);
+    } catch (err) {
+      setCommunityLoadingError(true);
+    } finally {
+      setIsLoadingCommunities(false);
+    }
   };
 
-  return { communities, loadingError, isLoadingCommunities, addNewCommunity };
+  const postCommunity = async ({ image, title }) => {
+    setAddingError(false);
+    try {
+      const res = await fetch("/api/community/", {
+        method: "POST",
+        body: JSON.stringify({
+          creatorSlug: "webapp",
+          imageUrl: image,
+          title: title,
+        }),
+      });
+      console.log(await res.json())
+      refreshCommunities();
+    } catch (err) {
+      setAddingError(true);
+    }
+  };
+
+  const addNewCommunity = ({ image, title }) => {
+    postCommunity({ image, title });
+  };
+
+  useEffect(() => {
+    refreshCommunities();
+  }, []);
+
+  return {
+    communities,
+    communityLoadingError,
+    addingError,
+    isLoadingCommunities,
+    addNewCommunity,
+  };
 };

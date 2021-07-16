@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
@@ -11,8 +12,17 @@ import { GITHUB_USER } from "../src/utils/constants";
 import { useCommunity, useFollowers } from "../src/hooks/";
 
 export default function Home() {
-  const { addNewCommunity } = useCommunity();
   const { followers } = useFollowers();
+  const {
+    communities,
+    addNewCommunity,
+    communityLoadingError,
+    isLoadingCommunities,
+  } = useCommunity();
+
+  useEffect(() => {
+    console.log(communities);
+  }, [communities]);
 
   return (
     <>
@@ -27,7 +37,12 @@ export default function Home() {
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox boxTitle="Meus amigos" cardList={followers} />
-          <CommunityBox />
+          <CardBox
+            boxTitle="Comunidades"
+            cardList={communities}
+            error={communityLoadingError}
+            loading={isLoadingCommunities}
+          />
         </Container>
       </MainGrid>
     </>

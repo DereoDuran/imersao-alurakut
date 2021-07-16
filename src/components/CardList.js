@@ -5,8 +5,8 @@ export const CardList = ({ cardList }) => {
   return (
     <ul>
       {cardList.slice(0, 6).map((card) => {
-        const { title } = card
-        return <Card key={`card-${title}`} cardInfo={card} />;
+        const { title, id } = card
+        return <Card key={`card-${title}-${id}`} cardInfo={card} />;
       })}
     </ul>
   );
