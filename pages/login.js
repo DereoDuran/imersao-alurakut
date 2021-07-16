@@ -1,8 +1,7 @@
-import { PublicPage } from 'next-github-auth'
 import React from 'react';
 import { useRouter } from 'next/router';
 
-function LoginScreen() {
+export default function LoginScreen() {
   const router = useRouter();
   const [githubUser, setGithubUser] = React.useState('');
 
@@ -56,5 +55,3 @@ function LoginScreen() {
     </main>
   )
 } 
-
-export default PublicPage

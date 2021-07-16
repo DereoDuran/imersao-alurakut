@@ -10,7 +10,7 @@ import { AlurakutMenu } from "../src/lib/Commons";
 import { GITHUB_USER } from "../src/utils/constants";
 import { useCommunity, useFollowers } from "../src/hooks/";
 
-function Home() {
+export default function Home() {
   const { followers } = useFollowers();
   const {
     communities,
