@@ -1,3 +1,4 @@
+import { PrivatePage } from 'next-github-auth'
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
@@ -9,7 +10,7 @@ import { AlurakutMenu } from "../src/lib/Commons";
 import { GITHUB_USER } from "../src/utils/constants";
 import { useCommunity, useFollowers } from "../src/hooks/";
 
-export default function Home() {
+function Home() {
   const { followers } = useFollowers();
   const {
     communities,
@@ -42,3 +43,5 @@ export default function Home() {
     </>
   );
 }
+
+export default PrivatePage(Home)
