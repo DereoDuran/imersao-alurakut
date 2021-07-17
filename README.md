@@ -1,4 +1,5 @@
 # imersao-alurakut
+
 Projeto da Semana de Imersão React da Alura.
 
 Acesse o site: https://imersao-alurakut.vercel.app/
@@ -7,5 +8,4 @@ Acesse o site: https://imersao-alurakut.vercel.app/
 
 - Login via OAuth
 
-![Alt Text](demos/login_demo.gif)
-
+<p align="center"><img src='demos/login_demo.gif' /></p>
