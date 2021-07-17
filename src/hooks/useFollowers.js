@@ -4,9 +4,7 @@ import { formatGitUserJson } from "../utils/utilFunctions";
 
 export const useFollowers = () => {
   const [followers, setFollowers] = useState([]);
-
-  const addFollowers = (newFollowers) =>
-    setFollowers([...followers, ...newFollowers]);
+  const [following, setFollowing] = useState([]);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${GITHUB_USER}/followers`)
@@ -17,7 +15,16 @@ export const useFollowers = () => {
       .catch((e) => {
         console.log("error fetching followers");
       });
+    fetch(`https://api.github.com/users/${GITHUB_USER}/following`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson);
+        addFollowing(responseJson.map(formatGitUserJson));
+      })
+      .catch((e) => {
+        console.log("error fetching following");
+      });
   }, []);
 
-  return { followers };
+  return { followers, following };
 };

@@ -10,8 +10,8 @@ import { useCommunity, useFollowers, useLogin } from "../src/hooks/";
 import { decodeToken } from "../src/utils/utilFunctions";
 import nookies from "nookies";
 
-export default function Home({ githubUser }) {
-  const { followers } = useFollowers();
+export default function Home({ githubUser, token }) {
+  const { followers, following } = useFollowers(token);
   const { logOut } = useLogin();
   const {
     communities,
@@ -31,7 +31,8 @@ export default function Home({ githubUser }) {
           <WelcomeBox />
         </Container>
         <Container gridArea="profileRelationsArea">
-          <CardBox boxTitle="Meus amigos" cardList={followers} />
+          <CardBox boxTitle="Seguindo" cardList={followers} />
+          <CardBox boxTitle="Seguidores" cardList={following} />
           <CardBox
             boxTitle="Comunidades"
             cardList={communities}
