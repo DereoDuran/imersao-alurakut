@@ -1,5 +1,5 @@
 import { Container, HomeGrid } from "../src/layout/";
-import { CardBox, ProfileSidebar, WelcomeBox } from "../src/components/";
+import { CardBox, NewCommunityBox, ProfileSidebar, WelcomeBox } from "../src/components/";
 import { AlurakutMenu } from "../src/lib/Commons";
 import { useCommunity, useFollowers, useLogin } from "../src/hooks/";
 import { sharedGetServerSideProps } from "../src/utils/utilFunctions";
@@ -14,7 +14,7 @@ export default function Home({ githubUser, token }) {
     isLoadingFollowers,
     isLoadingFollowing,
   } = useFollowers(token);
-  const { communities, communityLoadingError, isLoadingCommunities } =
+  const { communities, addNewCommunity, communityLoadingError, isLoadingCommunities } =
     useCommunity();
 
   return (
@@ -26,6 +26,7 @@ export default function Home({ githubUser, token }) {
         </Container>
         <Container gridArea="welcomeArea">
           <WelcomeBox />
+          <NewCommunityBox addNewCommunity={addNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox

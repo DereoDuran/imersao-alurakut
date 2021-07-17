@@ -43,7 +43,7 @@ export const useCommunity = () => {
   };
 
   const addNewCommunity = ({ image, title }) => {
-    postCommunity({ image, title });
+    setCommunities([{ imageUrl: image, title }, ...communities ]);
   };
 
   useEffect(() => {
