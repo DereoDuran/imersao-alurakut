@@ -6,6 +6,12 @@ export const useFollowers = () => {
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
 
+  const addFollowers = (newFollowers) =>
+    setFollowers([...followers, ...newFollowers]);
+
+  const addFollowing = (newFollowing) =>
+  setFollowing([...followers, ...newFollowing]);
+
   useEffect(() => {
     fetch(`https://api.github.com/users/${GITHUB_USER}/followers`)
       .then((response) => response.json())
@@ -18,7 +24,7 @@ export const useFollowers = () => {
     fetch(`https://api.github.com/users/${GITHUB_USER}/following`)
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson);
+        console.log(responseJson)
         addFollowing(responseJson.map(formatGitUserJson));
       })
       .catch((e) => {
