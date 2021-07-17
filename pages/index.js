@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Container, MainGrid } from "../src/layout/";
 import {
   CardBox,
@@ -11,7 +12,14 @@ import { decodeToken } from "../src/utils/utilFunctions";
 import nookies from "nookies";
 
 export default function Home({ githubUser, token }) {
-  const { followers, following } = useFollowers(token);
+  const {
+    followers,
+    following,
+    followersError,
+    followingError,
+    isLoadingFollowers,
+    isLoadingFollowing,
+  } = useFollowers(token);
   const { logOut } = useLogin();
   const {
     communities,
@@ -19,6 +27,7 @@ export default function Home({ githubUser, token }) {
     communityLoadingError,
     isLoadingCommunities,
   } = useCommunity();
+  // const [allfollowers, setAllFollowers] = 
 
   return (
     <>
@@ -31,8 +40,18 @@ export default function Home({ githubUser, token }) {
           <WelcomeBox />
         </Container>
         <Container gridArea="profileRelationsArea">
-          <CardBox boxTitle="Seguindo" cardList={followers} />
-          <CardBox boxTitle="Seguidores" cardList={following} />
+          <CardBox
+            boxTitle="Seguindo"
+            cardList={followers}
+            error={followersError}
+            loading={isLoadingFollowers}
+          />
+          <CardBox
+            boxTitle="Seguidores"
+            cardList={following}
+            error={followingError}
+            loading={isLoadingFollowing}
+          />
           <CardBox
             boxTitle="Comunidades"
             cardList={communities}

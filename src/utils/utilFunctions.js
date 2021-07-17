@@ -1,9 +1,11 @@
 export const gitUserToCardInfo = (user) => {
+  const { login, ...rest } = user
   return {
-    title: user,
-    imageUrl: `https://github.com/${user}.png`,
-    key: `person-${user}`,
-    href: `https://github.com/${user}`,
+    title: login,
+    imageUrl: `https://github.com/${login}.png`,
+    key: `person-${login}`,
+    href: `https://github.com/${login}`,
+    ...rest
   };
 };
 

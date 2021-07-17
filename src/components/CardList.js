@@ -1,11 +1,12 @@
 import React from "react";
 import { Card } from "./";
 
-export const CardList = ({ cardList }) => {
+export const CardList = ({ cardList, boxTitle }) => {
+
   return (
-    <ul>
+    <ul key={`${boxTitle}`}>
       {cardList.slice(0, 6).map((card) => {
-        const { title, id } = card
+        const { title, id } = card;
         return <Card key={`card-${title}-${id}`} cardInfo={card} />;
       })}
     </ul>
