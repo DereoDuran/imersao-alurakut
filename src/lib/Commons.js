@@ -236,7 +236,7 @@ export function AlurakutProfileSidebarMenuDefault({ logOut }) {
         </a>
         <div onClick={logOut}>
           <a>
-            <img onClick={logOut} src={`${BASE_URL}//icons/logout.svg`} />
+            <img src={`${BASE_URL}//icons/logout.svg`} />
             Sair
           </a>
         </div>
