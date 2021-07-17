@@ -20,7 +20,6 @@ export default function Home({ githubUser }) {
     isLoadingCommunities,
   } = useCommunity();
 
-
   return (
     <>
       <AlurakutMenu githubUser={githubUser} logOut={logOut} />
@@ -63,7 +62,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       githubUser,
-      token
+      token,
     },
   };
 }
