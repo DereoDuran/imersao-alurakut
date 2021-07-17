@@ -29,7 +29,6 @@ export default function Home({ githubUser }) {
         </Container>
         <Container gridArea="welcomeArea">
           <WelcomeBox />
-          <NewCommunityBox addNewCommunity={addNewCommunity} />
         </Container>
         <Container gridArea="profileRelationsArea">
           <CardBox boxTitle="Meus amigos" cardList={followers} />
