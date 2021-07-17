@@ -233,7 +233,7 @@ export function AlurakutProfileSidebarMenuDefault() {
           <img src={`${BASE_URL}/icons/plus.svg`} />
           GitHub Trends
         </a>
-        <a href="/logout">
+        <a onClick={logOut}>
           <img src={`${BASE_URL}//icons/logout.svg`} />
           Sair
         </a>
