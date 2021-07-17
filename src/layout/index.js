@@ -1,3 +1,4 @@
 export * from './Box'
 export * from './Container'
-export * from './MainGrid'
+export * from './HomeGrid'
+export * from './LayoutGrid'

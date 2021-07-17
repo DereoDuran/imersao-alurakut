@@ -1,11 +1,14 @@
+import nookies from "nookies";
+
 export const gitUserToCardInfo = (user) => {
-  const { login, ...rest } = user
+  const { login, ...rest } = user;
   return {
     title: login,
     imageUrl: `https://github.com/${login}.png`,
     key: `person-${login}`,
     href: `https://github.com/${login}`,
-    ...rest
+    login,
+    ...rest,
   };
 };
 
@@ -36,4 +39,26 @@ export const decodeToken = async (token) => {
   } catch {
     return {};
   }
+};
+
+export const sharedGetServerSideProps = async (ctx) => {
+  const cookies = nookies.get(ctx);
+  const token = cookies.USER_TOKEN;
+  const { githubUser } = await decodeToken(token);
+
+  if (!githubUser) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      githubUser,
+      token,
+    },
+  };
 };

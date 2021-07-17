@@ -1,6 +1,7 @@
 export * from './ProfileRelations'
 export * from './Card'
 export * from './CardList'
+export * from './CardDiv'
 export * from './CardBox'
 export * from './NewCommunityBox'
 export * from './ProfileSidebar'

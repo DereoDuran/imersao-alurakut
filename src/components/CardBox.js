@@ -12,7 +12,7 @@ export const CardBox = ({ error, loading, boxTitle, cardList }) => {
       ) : loading ? (
         <div className="successTextDiv">Carregando...</div>
       ) : (
-        <CardList boxTitle={boxTitle} cardList={cardList} />
+        <CardList slice="6" boxTitle={boxTitle} cardList={cardList} />
       )}
     </ProfileRelationsBoxWrapper>
   );

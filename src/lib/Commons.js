@@ -47,7 +47,7 @@ export function AlurakutMenu({ githubUser, logOut }) {
           </nav>
 
           <nav>
-           <a onClick={logOut}>Sair</a>
+            <a onClick={logOut}>Sair</a>
             <div>
               <input placeholder="Pesquisar no Orkut" />
             </div>
@@ -547,11 +547,18 @@ export const AlurakutStyles = css`
   .successTextDiv {
     margin: 20px 0px 10px;
     padding: 12px;
-    color: #00529B;
-    background-color: #BDE5F8;
+    color: #00529b;
+    background-color: #bde5f8;
   }
   .loginButton {
     width: 200px !important;
+  }
+  .cardDiv {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      margin-top: 18px;
+    }
   }
   ${AlurakutLoginScreen}
 `;

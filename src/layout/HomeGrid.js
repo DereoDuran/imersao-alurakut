@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainGrid = styled.main`
+export const HomeGrid = styled.main`
   width: 100%;
   grid-gap: 10px;
   margin-left: auto;
