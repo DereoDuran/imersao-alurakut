@@ -13,6 +13,10 @@ export const useFollowers = () => {
   setFollowing([...followers, ...newFollowing]);
 
   useEffect(() => {
+    const MAX_SIZE = 100;
+    let startingPage = 0;
+
+
     fetch(`https://api.github.com/users/${GITHUB_USER}/followers`)
       .then((response) => response.json())
       .then((responseJson) => {

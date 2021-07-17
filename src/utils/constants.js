@@ -26,7 +26,7 @@ export const INITIAL_PEOPLE = [
 
 export const GITHUB_USER = "dereoduran";
 
-// export const CLIENT_ID = "b5b5d5f9a569816dc143";
-export const CLIENT_ID = "0e39d2cd550feb299f60";
+export const CLIENT_ID = "b5b5d5f9a569816dc143";
+// export const CLIENT_ID = "0e39d2cd550feb299f60";
 
 export const GITHUB_AUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}`;
