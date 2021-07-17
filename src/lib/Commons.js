@@ -30,7 +30,8 @@ export function AlurakutMenu({ githubUser, logOut }) {
       <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
         <div className="container">
           <a href="/">
-          <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} /></a>
+            <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
+          </a>
 
           <nav style={{ flex: 1 }}>
             {[
@@ -63,7 +64,7 @@ export function AlurakutMenu({ githubUser, logOut }) {
             )}
           </button>
         </div>
-        <AlurakutMenuProfileSidebar githubUser={githubUser} />
+        <AlurakutMenuProfileSidebar logOut={logOut} githubUser={githubUser} />
       </AlurakutMenu.Wrapper>
     </>
   );
@@ -181,7 +182,7 @@ AlurakutMenu.Logo = styled.img`
   height: 34px;
 `;
 
-function AlurakutMenuProfileSidebar({ githubUser }) {
+function AlurakutMenuProfileSidebar({ githubUser, logOut }) {
   return (
     <div className="alurakutMenuProfileSidebar">
       <div>
@@ -197,7 +198,7 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
         </p>
         <hr />
 
-        <AlurakutProfileSidebarMenuDefault />
+        <AlurakutProfileSidebarMenuDefault logOut={logOut} />
       </div>
     </div>
   );
@@ -206,7 +207,7 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
 // ================================================================================================================
 // AlurakutProfileSidebarMenuDefault
 // ================================================================================================================
-export function AlurakutProfileSidebarMenuDefault() {
+export function AlurakutProfileSidebarMenuDefault({ logOut }) {
   return (
     <AlurakutProfileSidebarMenuDefault.Wrapper>
       <nav>
@@ -233,10 +234,12 @@ export function AlurakutProfileSidebarMenuDefault() {
           <img src={`${BASE_URL}/icons/plus.svg`} />
           GitHub Trends
         </a>
-        <a onClick={logOut}>
-          <img src={`${BASE_URL}//icons/logout.svg`} />
-          Sair
-        </a>
+        <div onClick={logOut}>
+          <a>
+            <img onClick={logOut} src={`${BASE_URL}//icons/logout.svg`} />
+            Sair
+          </a>
+        </div>
       </nav>
     </AlurakutProfileSidebarMenuDefault.Wrapper>
   );
