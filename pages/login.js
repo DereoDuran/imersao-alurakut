@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { CLIENT_ID } from "../src/utils/constants";
+import { GITHUB_AUTH_URL } from "../src/utils/constants";
 import Link from "next/link";
 import { useLogin } from "../src/hooks";
 import { CircularProgress } from "@material-ui/core";
@@ -19,8 +19,6 @@ export default function LoginScreen() {
     };
     authenticate();
   }, [code]);
-
-  const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}`;
 
   return (
     <main
@@ -59,7 +57,7 @@ export default function LoginScreen() {
               <CircularProgress />
             ) : (
               <>
-                <Link href={githubAuthUrl} passHref>
+                <Link href={GITHUB_AUTH_URL} passHref>
                   <button className="loginButton" type="submit">
                     Login
                   </button>
@@ -71,7 +69,7 @@ export default function LoginScreen() {
           <footer className="box">
             <p>
               Ainda não é membro? <br />
-              <a href={githubAuthUrl}>
+              <a href={GITHUB_AUTH_URL}>
                 <br />
                 <strong>ENTRAR JÁ</strong>
               </a>
