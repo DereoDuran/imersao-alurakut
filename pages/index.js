@@ -30,14 +30,14 @@ export default function Home({ githubUser, token }) {
         <Container gridArea="profileRelationsArea">
           <CardBox
             link="/amigos"
-            boxTitle="Seguindo"
+            boxTitle="Seguidores"
             cardList={followers}
             error={followersError}
             loading={isLoadingFollowers}
           />
           <CardBox
             link="/amigos"
-            boxTitle="Seguidores"
+            boxTitle="Seguindo"
             cardList={following}
             error={followingError}
             loading={isLoadingFollowing}
