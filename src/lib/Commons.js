@@ -29,7 +29,8 @@ export function AlurakutMenu({ githubUser, logOut }) {
       <GlobalStyle isMenuOpen={isMenuOpen} />
       <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
         <div className="container">
-          <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
+          <a href="/">
+          <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} /></a>
 
           <nav style={{ flex: 1 }}>
             {[

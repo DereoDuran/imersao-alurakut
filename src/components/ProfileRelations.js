@@ -16,6 +16,9 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     height: 100%;
     position: relative;
   }
+  a:link {
+    text-decoration: none;
+  }
   ul li a {
     display: inline-block;
     height: 102px;
