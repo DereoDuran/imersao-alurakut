@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { AlurakutStyles } from "../src/lib/Commons";
+import Head from "next/head";
 
 const GlobalStyle = createGlobalStyle`
   /* Reset CSS */
@@ -34,6 +35,14 @@ const theme = {
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        ></link>
+      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
