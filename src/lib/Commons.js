@@ -17,7 +17,7 @@ function Link({ href, children, ...props }) {
 // ================================================================================================================
 // Menu
 // ================================================================================================================
-export function AlurakutMenu({ githubUser }) {
+export function AlurakutMenu({ githubUser, logOut }) {
   const { isMenuOpen, toggleMenu } = useMenu();
   const GlobalStyle = createGlobalStyle`
     body {
@@ -47,7 +47,7 @@ export function AlurakutMenu({ githubUser }) {
           </nav>
 
           <nav>
-            <a href={`/logout`}>Sair</a>
+           <a onClick={logOut}>Sair</a>
             <div>
               <input placeholder="Pesquisar no Orkut" />
             </div>
@@ -549,6 +549,9 @@ export const AlurakutStyles = css`
     padding: 12px;
     color: #00529B;
     background-color: #BDE5F8;
+  }
+  .loginButton {
+    width: 200px !important;
   }
   ${AlurakutLoginScreen}
 `;

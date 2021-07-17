@@ -25,3 +25,5 @@ export const INITIAL_PEOPLE = [
 ].map(gitUserToCardInfo);
 
 export const GITHUB_USER = "dereoduran";
+
+export const CLIENT_ID = "b5b5d5f9a569816dc143";
