@@ -28,4 +28,4 @@ export const GITHUB_USER = "dereoduran";
 
 export const CLIENT_ID = "b5b5d5f9a569816dc143";
 
-const GITHUB_AUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}`;
+export const GITHUB_AUTH_URL = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}`;
