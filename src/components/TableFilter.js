@@ -20,7 +20,7 @@ export const TableFilter = ({
     <>
       <FormGroup className="formGroup" row>
         <Box m={3}>
-          <Typography style={{ marginTop: '11px'}}>Filtra:</Typography>
+          <Typography style={{ marginTop: "11px" }}>Filtrar:</Typography>
         </Box>
         <Box>
           <input
@@ -32,7 +32,7 @@ export const TableFilter = ({
         </Box>
         <Box>
           <FormControlLabel
-          style={{ margin: '0px 40px'}}
+            style={{ margin: "0px 40px" }}
             control={
               <Checkbox
                 checked={Boolean(filter)}
