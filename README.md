@@ -15,5 +15,6 @@ Segui o roteiro da imersão, mas fiz algumas melhorias e adaptações:
 - Novos Hooks: useLogin, useFollowers, useCommunity, useMenu
 - Adição de estados para indicação de loading/carregamento
 - Adição de favicon
+- Filtro e paginação dos resultados
 
 <p align="center"><img src='demos/login_demo.gif' /></p>
