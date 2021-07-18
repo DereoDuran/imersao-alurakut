@@ -36,6 +36,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Alurakut</title>
         <link
           rel="icon"
           type="image/png"
