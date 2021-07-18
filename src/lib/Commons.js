@@ -564,5 +564,16 @@ export const AlurakutStyles = css`
       margin-top: 18px;
     }
   }
+  .filter {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+  .cleanInput {
+    padding: 28px 14px;
+    margin: 0px 30px;
+    width: 10px;
+  }
   ${AlurakutLoginScreen}
 `;
