@@ -31,7 +31,7 @@ export default function Comunidades({ githubUser, token }) {
               ? following
                   .filter((result) => {
                     if (filterStringFollowing === "") return result;
-                    return result.login.includes(filterStringFollowing);
+                    return result.login.toLowerCase().includes(filterStringFollowing.toLowerCase());
                   })
                   .filter(
                     (e) =>
@@ -41,7 +41,7 @@ export default function Comunidades({ githubUser, token }) {
                   )
               : following.filter((result) => {
                   if (filterStringFollowing=== "") return result;
-                  return result.login.includes(filterStringFollowing);
+                  return result.login.toLowerCase().includes(filterStringFollowing.toLowerCase());
                 })
           }
           error={followingError}
@@ -59,7 +59,7 @@ export default function Comunidades({ githubUser, token }) {
               ? followers
                   .filter((result) => {
                     if (filterStringFollowers === "") return result;
-                    return result.login.includes(filterStringFollowers);
+                    return result.login.toLowerCase().includes(filterStringFollowers.toLowerCase());
                   })
                   .filter((e) =>
                     following
@@ -68,7 +68,7 @@ export default function Comunidades({ githubUser, token }) {
                   )
               : followers.filter((result) => {
                   if (filterStringFollowers === "") return result;
-                  return result.login.includes(filterStringFollowers);
+                  return result.login.toLowerCase().includes(filterStringFollowers.toLowerCase());
                 })
           }
           error={followersError}
