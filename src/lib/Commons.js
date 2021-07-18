@@ -572,7 +572,7 @@ export const AlurakutStyles = css`
   }
   .cleanInput {
     padding: 28px 14px;
-    margin: 0px 30px;
+    margin: 0px 30px 0px 10px;
     width: 10px;
   }
   ${AlurakutLoginScreen}

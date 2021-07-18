@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LayoutGrid } from "../src/layout/";
-import { CardDiv } from "../src/components/";
+import { CardDivFilter } from "../src/components/";
 import { AlurakutMenu } from "../src/lib/Commons";
 import { useFollowers, useLogin } from "../src/hooks/";
 import { sharedGetServerSideProps } from "../src/utils/utilFunctions";
@@ -24,7 +24,7 @@ export default function Comunidades({ githubUser, token }) {
     <>
       <AlurakutMenu githubUser={githubUser} logOut={logOut} />
       <LayoutGrid>
-        <CardDiv
+        <CardDivFilter
           boxTitle="Seguindo"
           cardList={
             filterFollowing
@@ -52,7 +52,7 @@ export default function Comunidades({ githubUser, token }) {
           filterString={filterStringFollowing}
           filterText="Mostrar quem não te segue"
         />
-        <CardDiv
+        <CardDivFilter
           boxTitle="Seguidores"
           cardList={
             filterFollowers

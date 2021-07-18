@@ -20,7 +20,7 @@ export const TableFilter = ({
     <>
       <FormGroup className="formGroup" row>
         <Box m={3}>
-          <Typography style={{ marginTop: "11px" }}>Filtrar:</Typography>
+          <Typography style={{ marginTop: "-15px" }}>Filtrar:</Typography>
         </Box>
         <Box>
           <input
